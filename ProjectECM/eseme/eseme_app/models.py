@@ -63,9 +63,11 @@ class Levels(models.Model):
     class Meta:
         managed = False
         db_table = 'levels'
+        
 #-- ---------------- ---------------- ---------------- ----------------
 #-- ------ Dependientes
 #-- ---------------- ---------------- ---------------- ----------------
+
 class Course(models.Model):
     cour_id = models.SmallAutoField(primary_key=True)
     cour_description = models.TextField(blank=True, null=True)
