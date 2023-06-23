@@ -8,4 +8,7 @@ urlpatterns = [
     path('season/', views.SeasonList.as_view(), name='season'),
     path('season/post', views.SeasonPost.as_view(), name='season_post'),
     path('season/<int:pk>/', views.SeasonDetailList.as_view(), name='season_detail'),
+    path('members/', views.MembersGetByDni.as_view(), name='members'),
+    path('students/', views.StudentsGetByID.as_view(), name='students'),
+
 ]
