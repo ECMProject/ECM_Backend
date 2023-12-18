@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 class Zones(models.Model):
     zone_id = models.SmallAutoField(primary_key=True)
@@ -8,10 +7,6 @@ class Zones(models.Model):
 
     def __str__(self):
         return self.zone_description
-    
-    class Meta:
-        managed = False
-        db_table = 'zones'
         
 class Schedule(models.Model):
     sche_id = models.SmallAutoField(primary_key=True)
@@ -22,10 +17,6 @@ class Schedule(models.Model):
     
     def __str__(self):
         return self.sche_description
-
-    class Meta:
-        managed = False
-        db_table = 'schedule'
         
 class Periods(models.Model):
     peri_id = models.SmallAutoField(primary_key=True)
@@ -37,21 +28,13 @@ class Periods(models.Model):
     def __str__(self):
         return self.peri_description
 
-    class Meta:
-        managed = False
-        db_table = 'periods'
-
 class Modes(models.Model):
     mode_id = models.SmallAutoField(primary_key=True)
     mode_description = models.TextField(blank=True, null=True)
     mode_status = models.BooleanField(blank=True, null=True)
 
     def __str__(self):
-        return self.mode_description
-    
-    class Meta:
-        managed = False
-        db_table = 'modes'        
+        return self.mode_description   
 
 class Levels(models.Model):
     leve_id = models.SmallAutoField(primary_key=True)
@@ -60,10 +43,6 @@ class Levels(models.Model):
     def __str__(self):
         return self.leve_description
     
-    class Meta:
-        managed = False
-        db_table = 'levels'
-        
 #-- ---------------- ---------------- ---------------- ----------------
 #-- ------ Dependientes
 #-- ---------------- ---------------- ---------------- ----------------
@@ -77,10 +56,6 @@ class Course(models.Model):
 
     def __str__(self):
         return self.cour_description
-    
-    class Meta:
-        managed = False
-        db_table = 'course'
         
 class Members(models.Model):
     memb_id = models.SmallAutoField(primary_key=True)
@@ -94,10 +69,6 @@ class Members(models.Model):
 
     def __str__(self):
         return self.memb_name
-    
-    class Meta:
-        managed = False
-        db_table = 'members'
         
 class Season(models.Model):
     seas_id = models.SmallAutoField(primary_key=True)
@@ -111,12 +82,7 @@ class Season(models.Model):
     
     def __str__(self):
         return self.seas_glosa
-
-    class Meta:
-        managed = False
-        db_table = 'season'
-
-
+    
 class Students(models.Model):
     stud_id = models.SmallAutoField(primary_key=True)
     stud_season = models.ForeignKey(Season, models.DO_NOTHING, db_column='stud_season', blank=True, null=True)
@@ -134,7 +100,3 @@ class Students(models.Model):
     seas_ses10 = models.BooleanField(blank=True, null=True)
     seas_ses11 = models.BooleanField(blank=True, null=True)
     seas_ses12 = models.BooleanField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'students'

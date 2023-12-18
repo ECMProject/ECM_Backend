@@ -10,5 +10,4 @@ urlpatterns = [
     path('season/<int:pk>/', views.SeasonDetailList.as_view(), name='season_detail'),
     path('members/<dni>/', views.MembersGetByDni.as_view(), name='members'),
     path('students/', views.StudentsGetByID.as_view(), name='students'),
-
 ]
